@@ -1,0 +1,7 @@
+.table-head {
+  &__cell {
+    color: $secondary-accent-color;
+    font-size: $secondary-fz;
+    font-weight: $accent-fw;
+  }
+}

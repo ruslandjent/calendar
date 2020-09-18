@@ -1,0 +1,26 @@
+.header {
+  padding-top: 25px;
+  padding-bottom: 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__date {
+    color: $primary-color;
+    font-weight: $accent-fw;
+    font-size: $primary-fz;
+  }
+
+  &__btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    padding: 5px 10px;
+
+    &:focus {
+      outline: 1px dashed $outline-color;
+    }
+  }
+}

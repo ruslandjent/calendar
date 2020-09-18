@@ -1,0 +1,13 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'PT Sans';
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}

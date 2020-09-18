@@ -1,0 +1,44 @@
+.table-body {
+  &__cell {
+    position: relative;
+    text-align: center;
+
+    font-size: $primary-fz;
+    color: $primary-color;
+
+    cursor: pointer;
+
+    &::before {
+      @include datePseudo;
+    }
+
+    &--current {
+      &::before {
+        border: 1px solid $primary-accent-color;
+      }
+    }
+
+    &:hover {
+      &::before {
+        background-color: $focus-bg-color;
+      }
+    }
+
+    &--active {
+      color: #fff;
+      &::before {
+        background-color: $primary-accent-color;
+      }
+
+      &:hover {
+        &::before {
+          background-color: $primary-accent-color;
+        }
+      }
+    }
+
+    &--notCurrentMonth {
+      color: $primary-accent-color;
+    }
+  }
+}
