@@ -1,4 +1,4 @@
-import {addDays, startOfWeek, differenceInCalendarWeeks, endOfMonth, startOfMonth, getDate} from 'date-fns';
+import {addDays, startOfWeek, getDate} from 'date-fns';
 
 export type MonthMatrixCell = {
   date: Date;
@@ -10,13 +10,10 @@ export type MonthMatrix = MonthMatrixCell[][];
 export const generateMonthMatrix = (year: number, month: number): MonthMatrix => {
   const weekStartsOn = 1;
   const matrixColumnsAmount = 7;
-
   const date = new Date(year, month);
-  const firstDay = startOfMonth(date);
-  const lastDay = endOfMonth(date);
 
   const startDate = startOfWeek(date, {weekStartsOn});
-  const matrixRows = differenceInCalendarWeeks(lastDay, firstDay, {weekStartsOn}) + 1;
+  const matrixRows = 5;
   const totalDays = matrixColumnsAmount * matrixRows;
 
   const matrix = Array.from({length: totalDays})

@@ -6,7 +6,7 @@ import {TableCell} from '../TableCell';
 
 export const TableBody: React.FC = () => {
   const {month, year} = useContext(Context);
-  const matrix = useMonthMatrix(month, year);
+  const matrix = useMonthMatrix(year, month);
 
   const classNames = {
     tBody: 'table__body table-body',

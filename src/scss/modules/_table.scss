@@ -1,9 +1,4 @@
 .table {
   width: 100%;
-
-  &__head {
-    &::after {
-      @include whiteSpace(30px);
-    }
-  }
+  border-spacing: 0 25px;
 }
