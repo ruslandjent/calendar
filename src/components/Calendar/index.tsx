@@ -3,8 +3,6 @@ import {getMonth, getYear} from 'date-fns';
 
 import {Header} from './components/Header';
 import {Table} from './components/Table';
-import {MonthMatrix} from '../../shared/functions/generateMonthMatrix';
-import {useMonthMatrix} from '../../shared/hooks/useMonthMatrix';
 import {Context} from '../../shared/context';
 
 export const Calendar: React.FC = () => {
@@ -12,10 +10,8 @@ export const Calendar: React.FC = () => {
 
   const [month, setMonth] = useState<number>(getMonth(now));
   const [year, setYear] = useState<number>(getYear(now));
-  const [matrix] = useState<MonthMatrix>(useMonthMatrix(year, month));
 
   const providerValue = {
-    matrix,
     month,
     year,
     setMonth,

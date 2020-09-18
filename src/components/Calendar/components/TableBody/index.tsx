@@ -1,16 +1,27 @@
-import React from 'react';
+import React, {useContext} from 'react';
+
+import {Context} from '../../../../shared/context';
+import {useMonthMatrix} from '../../../../shared/hooks/useMonthMatrix';
 import {TableCell} from '../TableCell';
 
 export const TableBody: React.FC = () => {
+  const {month, year} = useContext(Context);
+  const matrix = useMonthMatrix(month, year);
+
   const classNames = {
     tBody: 'table__body table-body',
     tBodyRow: 'table-body__row',
   };
+
   return (
     <tbody className={classNames.tBody}>
-      <tr className={classNames.tBodyRow}>
-        <TableCell cell={{date: new Date(), day: '25'}} />
-      </tr>
+      {matrix.map((row, idx) => (
+        <tr key={idx} className={classNames.tBodyRow}>
+          {row.map(cell => (
+            <TableCell key={cell.date.toString()} cell={cell} />
+          ))}
+        </tr>
+      ))}
     </tbody>
   );
 };
