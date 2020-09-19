@@ -1,11 +1,33 @@
 import React from 'react';
-import {MonthMatrixCell} from '../../../../shared/functions/generateMonthMatrix';
 
 interface ITableCellProps {
-  cell: MonthMatrixCell;
+  dayStr: string;
+  date: Date;
+  isCurrent: boolean;
+  isActive: boolean;
+  isAnotherMonth: boolean;
+  onClick: (number: number) => void;
 }
 
-export const TableCell: React.FC<ITableCellProps> = ({cell}) => {
-  const className = 'table-body__cell';
-  return <td className={className}>{cell.day}</td>;
+export const TableCell: React.FC<ITableCellProps> = ({dayStr, isCurrent, isAnotherMonth, onClick, date, isActive}) => {
+  const classNames = {
+    cell: 'table-body__cell',
+    current: 'table-body__cell table-body__cell--current',
+    active: 'table-body__cell table-body__cell--active',
+    anotherMonth: 'table-body__cell table-body__cell--anotherMonth',
+  };
+  const className = `${
+    isActive
+      ? classNames.active
+      : isCurrent
+      ? classNames.current
+      : isAnotherMonth
+      ? classNames.anotherMonth
+      : classNames.cell
+  }`;
+  return (
+    <td className={className} onClick={() => onClick(date.valueOf())}>
+      {dayStr}
+    </td>
+  );
 };
