@@ -1,11 +1,10 @@
 import React, {useContext, useState} from 'react';
-import {getMonth, isToday} from 'date-fns';
 
 import {Context} from '../../../../shared/context';
 import {useMonthMatrix} from '../../../../shared/hooks/useMonthMatrix';
-import {TableCell} from '../TableCell';
 import {useSelectedDates} from '../../../../shared/hooks/useSelectedDates';
 import {getDatesRange} from '../../../../shared/functions/getDatesRange';
+import {TableRow} from '../TableRow';
 
 export const TableBody: React.FC = () => {
   const {month, year} = useContext(Context);
@@ -15,7 +14,6 @@ export const TableBody: React.FC = () => {
 
   const classNames = {
     tBody: 'table__body table-body',
-    tBodyRow: 'table-body__row',
   };
 
   const handleCellClick = (date: number, shiftPressed: boolean) => {
@@ -34,19 +32,7 @@ export const TableBody: React.FC = () => {
   return (
     <tbody className={classNames.tBody}>
       {matrix.map((row, idx) => (
-        <tr key={idx} className={classNames.tBodyRow}>
-          {row.map(cell => (
-            <TableCell
-              key={cell.date.toString()}
-              dayStr={cell.day}
-              isCurrent={isToday(cell.date)}
-              isAnotherMonth={month !== getMonth(cell.date)}
-              date={cell.date}
-              onClick={handleCellClick}
-              isActive={selectedDates.some(date => date === cell.date.valueOf())}
-            />
-          ))}
-        </tr>
+        <TableRow row={row} key={idx} handleCellClick={handleCellClick} month={month} selectedDates={selectedDates} />
       ))}
     </tbody>
   );
