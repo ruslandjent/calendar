@@ -6,18 +6,18 @@ import {newGuid} from '../../../../shared/pipes/guid';
 export const TableHeader: React.FC = () => {
   const classNames = {
     tableHead: 'table__head table-head',
-    tableHeadRow: 'table-head__row',
+    tableHeadRow: 'table-head__row reset-list',
     tableHeadCell: 'table-head__cell',
   };
   return (
-    <thead className={classNames.tableHead}>
-      <tr className={classNames.tableHeadRow}>
+    <div className={classNames.tableHead}>
+      <ul className={classNames.tableHeadRow}>
         {weekDaysTitles.map(title => (
-          <th className={classNames.tableHeadCell} key={newGuid()}>
+          <li className={classNames.tableHeadCell} key={newGuid()}>
             {title}
-          </th>
+          </li>
         ))}
-      </tr>
-    </thead>
+      </ul>
+    </div>
   );
 };

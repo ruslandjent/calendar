@@ -8,13 +8,6 @@
 
   border-radius: 50%;
 
-  top: -4px;
-  left: 6px;
-}
-
-@mixin whiteSpace($amount) {
-  line-height: $amount;
-
-  content: '\200C';
-  display: block;
+  top: -5px;
+  left: -5px;
 }

@@ -26,8 +26,8 @@ export const TableCell: React.FC<ITableCellProps> = ({dayStr, isCurrent, isAnoth
       : classNames.cell
   }`;
   return (
-    <td className={className} onClick={e => onClick(date.valueOf(), e.shiftKey)}>
+    <span className={className} onClick={e => onClick(date.valueOf(), e.shiftKey)}>
       {dayStr}
-    </td>
+    </span>
   );
 };

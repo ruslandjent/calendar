@@ -1,7 +1,14 @@
 .table-head {
+  margin: 30px 0;
+
   &__cell {
     color: $secondary-accent-color;
     font-size: $secondary-fz;
     font-weight: $accent-fw;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
   }
 }

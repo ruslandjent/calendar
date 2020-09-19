@@ -15,7 +15,7 @@ export const TableRow: React.FC<ITableRowProps> = ({row, handleCellClick, month,
     tBodyRow: 'table-body__row',
   };
   return (
-    <tr className={classNames.tBodyRow}>
+    <li className={classNames.tBodyRow}>
       {row.map(cell => (
         <TableCell
           key={cell.date.toString()}
@@ -27,6 +27,6 @@ export const TableRow: React.FC<ITableRowProps> = ({row, handleCellClick, month,
           isActive={selectedDates.some(date => date === cell.date.valueOf())}
         />
       ))}
-    </tr>
+    </li>
   );
 };

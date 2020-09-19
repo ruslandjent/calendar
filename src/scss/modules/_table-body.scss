@@ -1,5 +1,8 @@
 .table-body {
   &__cell {
+    display: inline-block;
+    min-width: 16px;
+
     position: relative;
     text-align: center;
 
@@ -39,6 +42,16 @@
 
     &--anotherMonth {
       color: $primary-accent-color;
+    }
+
+    &:not(:last-child) {
+      margin-right: 22px;
+    }
+  }
+
+  &__row {
+    &:not(:last-child) {
+      margin-bottom: 30px;
     }
   }
 }

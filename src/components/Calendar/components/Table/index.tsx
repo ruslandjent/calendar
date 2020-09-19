@@ -4,11 +4,16 @@ import {TableBody} from '../TableBody';
 import {TableHeader} from '../TableHeader';
 
 export const Table: React.FC = () => {
-  const className = 'calendar__table table';
+  const classNames = {
+    table: 'calendar__table table',
+    wrapper: 'calendar__table-wrapper',
+  };
   return (
-    <table className={className}>
-      <TableHeader />
-      <TableBody />
-    </table>
+    <div className={classNames.wrapper}>
+      <div className={classNames.table}>
+        <TableHeader />
+        <TableBody />
+      </div>
+    </div>
   );
 };

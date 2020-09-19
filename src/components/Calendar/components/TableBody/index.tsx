@@ -6,15 +6,15 @@ import {MonthMatrix} from '../MonthMatrix';
 
 export const TableBody: React.FC = () => {
   const {month, year} = useContext(Context);
-  const [currentMonthMatrix, prevMonthMatrix, nextMonthMatrix] = useMonthMatrix(year, month);
+  const [currentMonthMatrix] = useMonthMatrix(year, month);
 
   const classNames = {
-    tBody: 'table__body table-body',
+    tBody: `table__body table-body reset-list`,
   };
 
   return (
-    <tbody className={classNames.tBody}>
+    <ul className={classNames.tBody}>
       <MonthMatrix matrix={currentMonthMatrix} />
-    </tbody>
+    </ul>
   );
 };
