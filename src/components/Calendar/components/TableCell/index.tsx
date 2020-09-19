@@ -6,7 +6,7 @@ interface ITableCellProps {
   isCurrent: boolean;
   isActive: boolean;
   isAnotherMonth: boolean;
-  onClick: (number: number) => void;
+  onClick: (number: number, shiftPressed: boolean) => void;
 }
 
 export const TableCell: React.FC<ITableCellProps> = ({dayStr, isCurrent, isAnotherMonth, onClick, date, isActive}) => {
@@ -26,7 +26,7 @@ export const TableCell: React.FC<ITableCellProps> = ({dayStr, isCurrent, isAnoth
       : classNames.cell
   }`;
   return (
-    <td className={className} onClick={() => onClick(date.valueOf())}>
+    <td className={className} onClick={e => onClick(date.valueOf(), e.shiftKey)}>
       {dayStr}
     </td>
   );
