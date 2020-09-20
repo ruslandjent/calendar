@@ -25,6 +25,7 @@ export const TableRow: React.FC<ITableRowProps> = ({row, handleCellClick, month,
           date={cell.date}
           onClick={handleCellClick}
           isActive={selectedDates.some(date => date === cell.date.valueOf())}
+          disabled={cell.disabled}
         />
       ))}
     </li>

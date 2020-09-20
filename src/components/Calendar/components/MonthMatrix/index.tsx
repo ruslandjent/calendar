@@ -14,6 +14,9 @@ export const MonthMatrix: React.FC<IMonthMatrix> = ({matrix}) => {
   const {month} = useContext(Context);
   const [selectedDates, setSelectedDates] = useSelectedDates();
   const [isInitialClick, setIsInitialClick] = useState(true);
+  const disabledDates: number[] = matrix
+    .flatMap(row => row.filter(cell => cell.disabled))
+    .map(item => item.date.valueOf());
 
   const handleCellClick = (date: number, shiftPressed: boolean) => {
     setSelectedDates(prevDates => {
@@ -21,7 +24,9 @@ export const MonthMatrix: React.FC<IMonthMatrix> = ({matrix}) => {
     });
 
     if (shiftPressed && !isInitialClick) {
-      const datesRange = getDatesRange(date, selectedDates);
+      const datesRange = getDatesRange(date, selectedDates)?.filter(dt =>
+        disabledDates.every(disabledDate => disabledDate !== dt),
+      );
       setSelectedDates(prevDates => (datesRange ? [...prevDates, ...datesRange] : [date]));
     }
 

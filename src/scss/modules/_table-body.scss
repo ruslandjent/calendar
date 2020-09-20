@@ -47,6 +47,16 @@
     &:not(:last-child) {
       margin-right: 22px;
     }
+
+    &--disabled {
+      color: $secondary-color;
+
+      cursor: not-allowed;
+
+      &::before {
+        content: none;
+      }
+    }
   }
 
   &__row {
