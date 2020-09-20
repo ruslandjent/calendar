@@ -5,12 +5,12 @@
   &__body {
     &--animatedNext {
       animation-name: toNext;
-      animation-duration: 500ms;
+      animation-duration: 1000ms;
     }
 
     &--animatedPrev {
       animation-name: toPrevious;
-      animation-duration: 500ms;
+      animation-duration: 1000ms;
     }
   }
 }

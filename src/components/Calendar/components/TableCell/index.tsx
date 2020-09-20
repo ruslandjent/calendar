@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+
+import {animationDelay} from '../../../../shared/defaults';
 
 interface ITableCellProps {
   dayStr: string;
@@ -19,6 +21,11 @@ export const TableCell: React.FC<ITableCellProps> = ({
   isActive,
   disabled,
 }) => {
+  const [isAnimated, setIsAnimated] = useState(false);
+  useEffect(() => {
+    setTimeout(() => setIsAnimated(true), animationDelay / 2);
+  }, []);
+
   const classNames = {
     cell: 'table-body__cell',
     current: 'table-body__cell table-body__cell--current',
@@ -29,7 +36,7 @@ export const TableCell: React.FC<ITableCellProps> = ({
   const className = `${
     disabled
       ? classNames.disabled
-      : isActive
+      : isActive && isAnimated
       ? classNames.active
       : isCurrent
       ? classNames.current
