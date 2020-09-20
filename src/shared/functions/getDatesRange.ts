@@ -13,5 +13,10 @@ export const getDatesRange = (date: number, selectedDates: number[]): number[] |
 
   if (!start) return null;
 
-  return eachDayOfInterval(interval).map(dt => dt.valueOf());
+  return (
+    eachDayOfInterval(interval)
+      .map(dt => dt.valueOf())
+      // deleting first and last elements of an array, because they are already exist
+      .slice(1, -1)
+  );
 };
