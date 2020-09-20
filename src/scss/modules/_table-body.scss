@@ -9,6 +9,8 @@
     font-size: $primary-fz;
     color: $primary-color;
 
+    user-select: none;
+
     cursor: pointer;
 
     &::before {
