@@ -1,0 +1,43 @@
+@keyframes toPrevious {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(70px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(-170px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toNext {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-70px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(170px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

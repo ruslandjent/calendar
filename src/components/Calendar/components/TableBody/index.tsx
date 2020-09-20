@@ -5,11 +5,13 @@ import {useMonthMatrix} from '../../../../shared/hooks/useMonthMatrix';
 import {MonthMatrix} from '../MonthMatrix';
 
 export const TableBody: React.FC = () => {
-  const {month, year} = useContext(Context);
+  const {month, year, isLeftAnimated, isRightAnimated} = useContext(Context);
   const [currentMonthMatrix] = useMonthMatrix(year, month);
 
   const classNames = {
-    tBody: `table__body table-body reset-list`,
+    tBody: `table__body table-body reset-list ${
+      isLeftAnimated ? 'table__body--animatedPrev' : isRightAnimated ? 'table__body--animatedNext' : ''
+    }`,
   };
 
   return (

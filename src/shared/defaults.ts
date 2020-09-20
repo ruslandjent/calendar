@@ -13,3 +13,5 @@ export const monthsTitles: string[] = [
   'Ноябрь',
   'Декабрь',
 ];
+
+export const animationDelay = 500;

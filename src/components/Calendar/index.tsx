@@ -11,11 +11,18 @@ export const Calendar: React.FC = () => {
   const [month, setMonth] = useState<number>(getMonth(now));
   const [year, setYear] = useState<number>(getYear(now));
 
+  const [isLeftAnimated, setIsLeftAnimated] = useState<boolean>(false);
+  const [isRightAnimated, setIsRightAnimated] = useState<boolean>(false);
+
   const providerValue = {
     month,
     year,
     setMonth,
     setYear,
+    isLeftAnimated,
+    isRightAnimated,
+    setIsLeftAnimated,
+    setIsRightAnimated,
   };
 
   const classNames = {

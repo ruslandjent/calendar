@@ -1,3 +1,16 @@
 .table {
   padding: 0 10px;
+  overflow: hidden;
+
+  &__body {
+    &--animatedNext {
+      animation-name: toNext;
+      animation-duration: 500ms;
+    }
+
+    &--animatedPrev {
+      animation-name: toPrevious;
+      animation-duration: 500ms;
+    }
+  }
 }
