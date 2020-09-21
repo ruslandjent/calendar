@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {generateMonthMatrix, MonthMatrix} from '../functions/generateMonthMatrix';
 
 export const useMonthMatrix = (year: number, month: number): MonthMatrix[] => {

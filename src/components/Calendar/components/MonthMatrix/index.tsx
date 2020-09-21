@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useMemo} from 'react';
 import {Context} from '../../../../shared/context';
 
 import {MonthMatrix as _MonthMatrix} from '../../../../shared/functions/generateMonthMatrix';
@@ -14,9 +14,11 @@ export const MonthMatrix: React.FC<IMonthMatrix> = ({matrix}) => {
   const {month} = useContext(Context);
   const [selectedDates, setSelectedDates] = useSelectedDates();
   const [isInitialClick, setIsInitialClick] = useState(true);
-  const disabledDates: number[] = matrix
-    .flatMap(row => row.filter(cell => cell.disabled))
-    .map(item => item.date.valueOf());
+
+  const disabledDates: number[] = useMemo(
+    () => matrix.flatMap(row => row.filter(cell => cell.disabled)).map(item => item.date.valueOf()),
+    [matrix],
+  );
 
   const handleCellClick = (date: number, shiftPressed: boolean) => {
     setSelectedDates(prevDates => {
