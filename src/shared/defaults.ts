@@ -15,3 +15,4 @@ export const monthsTitles: string[] = [
 ];
 
 export const animationDelay = 1000;
+export const matrixDelay = 200;
