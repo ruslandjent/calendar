@@ -18,8 +18,7 @@ export const generateMonthMatrix = (year: number, month: number): MonthMatrix =>
   const startDate = startOfWeek(date, {weekStartsOn});
   const totalDays = matrixColumns * matrixRows;
 
-  const matrix = Array.from({length: totalDays})
-    .map((_, idx) => addDays(startDate, idx))
+  const matrix = Array.from({length: totalDays}, (_, idx) => addDays(startDate, idx))
     .map(
       (date, idx): MonthMatrixCell => ({
         date,
